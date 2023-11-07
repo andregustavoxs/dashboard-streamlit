@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 st.set_page_config(page_title = "Meu site Streamlit")
 
@@ -10,3 +11,5 @@ with st.container():
 
 with st.container():
     st.write("---")
+    dados = pd.read_csv("resultados.csv")
+    st.area_chart(dados, x = "Data", y = "Contratos")
