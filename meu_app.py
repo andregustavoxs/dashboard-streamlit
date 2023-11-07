@@ -18,5 +18,8 @@ def carregar_dados():
 
 with st.container():
     st.write("---")
+    qtde_dias = st.selectbox("Selecione o período", ["7D", "15D", "21D", "30D"])
+    num_dias = int(qtde_dias.replace("D", ""))
     dados = carregar_dados()
+    dados = dados[-num_dias:]
     st.area_chart(dados, x="Data", y="Contratos")
